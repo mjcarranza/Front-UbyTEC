@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./gcleantypes.component.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <!--Division de clase para el regstro de usuarios-->
+            <div class="contenedor__user-register">
+                <!--Formulario para el registro de usuarios-->
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
+                    <h2>Registrar Tipo de Lavado</h2>
+                    <input id="lavName" type="text" placeholder="Nombre del nuevo lavado" formControlName="nombre">
+                    <input id="lavCost" type="number" placeholder="Costo del personal" formControlName="costo">
+                    <input id="lavPrecio" type="number" placeholder="Precio del lavado" formControlName="precio">
+                    <input id="lavDura" type="number" min="0" step="0.5" placeholder="Duración estimada en horas" formControlName="duracion">
+                    <h6>Seleccione los productos utilizados para el lavado:</h6>
+                    <select name="prodProv" formControlName="productos_usados">
+                        <option *ngFor="let prod of productList" [value]="prod.id">
+                            {{prod.nombre}}
+                        </option>
+                    </select>
+                    <input id="lavPers" type="number" placeholder="Cantidad de personal requerido" formControlName="cantidad_personal">
+                    <input id="lavPuntos" type="number" placeholder="Puntuación" formControlName="puntuacion">
+                    <input id="lavPuntosRed" type="number" placeholder="PuntuaciónRedime" formControlName="puntuacion_redime">
+                    <button id = "Registrar">Registrar Tipo de Lavado</button>
+                </form>
+                <!--Crear una tabla en este nivel-->
+            </div>
+            <div>
+                <!--Espaciadores-->
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        <div class="tablaRegistro">
+            <h2>TABLA DE TIPOS DE LAVADO REGISTRADOS</h2>
+            <!--Creacion de una tabla que muestra los datos de los clientes-->
+            <table class="tabla">
+                <tr>
+                    <th>Nombre del lavado</th>
+                    <th>Costo (Pago personal)</th>
+                    <th>Precio</th>
+                    <th>Duración en horas</th>
+                    <th>Productos utilizados</th>
+                    <th>Cantidad de personal requerido</th>
+                    <th>Ptos otorga</th>
+                    <th>Ptos redime</th>
+                </tr>
+                <tr *ngFor="let dataItem of ClenTypesList"><!--modificar esto de acuerdo con los headders de la base de datos-->
+                    <td>{{dataItem.nombre_de_lavado}}</td>
+                    <td>{{dataItem.costo}}</td>
+                    <td>{{dataItem.precio}}</td>
+                    <td>{{dataItem.duracion_estimada}}</td>
+                    <td>{{dataItem.productos_utilizados}}</td>
+                    <td>{{dataItem.personal_requerido}}</td>
+                    <td>{{dataItem.pOtorgados}}</td>
+                    <td>{{dataItem.pRedimidos}}</td>
+                </tr>
+                <!--En esta parte es donmde se agregan las demas filas--> 
+            </table>
+        </div>
+    </main>
+    <script></script>
+</body>
+</html>

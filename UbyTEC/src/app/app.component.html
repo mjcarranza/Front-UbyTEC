@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISTA ADMINISTRADOR</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./app.component.css">
+</head>
+
+<body>
+    <!--DIVISION PARA EL BANNER DE LA APLICACION-->
+    <div class="container-fluid">
+        <div class="row justify-content-center align-content-center">
+            <div class="col-8 barra">
+                <h1 style="color: white;">UbyTEC</h1>
+            </div>
+            <div class="col-4 text-centre barra">
+                <h2 style="color: white;">¡BIENVENIDO!</h2>
+            </div>            
+        </div>
+    </div>
+
+    <!--DIVISION PARA EL ESPACIO DE LOS COMPONENTES DE LA PAGINA-->
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+            <ul class="navbar-nav">
+                <div class="desplegable">
+                    <button type="button" class="m-1 btn btn-primary" id="emp" data-bs-toggle="dropdown" aria-expanded="false">Empleados</button>
+                    <div class="links">
+                        <a routerLink="addEmpleado">Agregar Empleado</a>
+                        <a routerLink="actEmpleado">Actualizar Empleado</a>
+                        <a routerLink="elimEmpleado">Eliminar Empleado</a>
+                        <a routerLink="tablaEmpleado">Lista de empleados</a>
+                    </div>
+                </div>
+                <div class="desplegable">
+                    <button type="button" class="m-1 btn btn-primary" id="emp" data-bs-toggle="dropdown" aria-expanded="false">Administradores</button>
+                    <div class="links">
+                        <a routerLink="addAdministrador">Agregar Administrador</a>
+                        <a routerLink="actAdministrador">Actualizar Administrador</a>
+                        <a routerLink="elimAdministrador">Eliminar Administrador</a>
+                        <a routerLink="tablaAdministrador">Lista de Administradores</a>
+                    </div>
+                </div>
+                <div class="desplegable">
+                    <button type="button" class="m-1 btn btn-primary" id="emp" data-bs-toggle="dropdown" aria-expanded="false">Afiliados</button>
+                    <div class="links">
+                        <a routerLink="addAfi">Agregar Afiliado</a>
+                        <a routerLink="actAfi">Actualizar Afiliado</a>
+                        <a routerLink="elimAfi">Eliminar Afiliado</a>
+                        <a routerLink="tablaAfi">Lista de Afiliados</a>
+                    </div>
+                </div>
+                <div class="desplegable">
+                    <button type="button" class="m-1 btn btn-primary" id="emp" data-bs-toggle="dropdown" aria-expanded="false">Comercios</button>
+                    <div class="links">
+                        <a routerLink="addCom">Agregar Comercio</a>
+                        <a routerLink="actCom">Actualizar Comercio</a>
+                        <a routerLink="elimCom">Eliminar Comercio</a>
+                        <a routerLink="tablaCom">Lista de Comercio</a>
+                    </div>
+                </div>
+                <div class="desplegable">
+                    <button type="button" class="m-1 btn btn-primary" id="emp" data-bs-toggle="dropdown" aria-expanded="false">Productos</button>
+                    <div class="links">
+                        <a routerLink="addProd">Agregar Producto</a>
+                        <a routerLink="actProd">Actualizar Producto</a>
+                        <a routerLink="elimProd">Eliminar Producto</a>
+                        <a routerLink="tablaProd">Lista de Productos</a>
+                    </div>
+                </div>
+                <div class="desplegable">
+                    <button type="button" class="m-1 btn btn-primary" id="emp" data-bs-toggle="dropdown" aria-expanded="false">Repartidores</button>
+                    <div class="links">
+                        <a routerLink="addRep">Agregar Repartidor</a>
+                        <a routerLink="actRep">Actualizar Repartidor</a>
+                        <a routerLink="elimRep">Eliminar Repartidor</a>
+                        <a routerLink="tablaRep">Lista de Repartidores</a>
+                    </div>
+                </div>
+                <div class="desplegable">
+                    <button type="button" class="m-1 btn btn-primary" id="emp" data-bs-toggle="dropdown" aria-expanded="false">Clientes</button>
+                    <div class="links">
+                        <a routerLink="addCliente">Agregar Cliente</a>
+                        <a routerLink="actCliente">Actualizar Cliente</a>
+                        <a routerLink="elimCliente">Eliminar Cliente</a>
+                        <a routerLink="tablaCliente">Lista de Clientes</a>
+                    </div>
+                </div>
+                <li class="nav-item">
+                    <button id="inicio" class="m-1 btn btn-primary" routerLink="pedidos" routerLinkActive="activebutton">Pedidos</button>
+                </li>
+                <li class="nav-item">
+                    <button id="inicio" class="m-1 btn btn-primary" routerLink="misPedidos" routerLinkActive="activebutton">Mis Pedidos</button>
+                </li>
+                <li class="nav-item">
+                    <button id="inicio" class="m-1 btn btn-primary" routerLink="carrito" routerLinkActive="activebutton">Carrito</button>
+                </li>
+                <li class="nav-item">
+                    <button id="inicio" class="m-1 btn btn-primary" routerLink="inicio" routerLinkActive="activebutton">Cerrar sesion</button>
+                </li>
+            </ul>
+        </nav>
+        <router-outlet></router-outlet>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/646c794df3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

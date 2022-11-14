@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./crea-empl.component.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <!--Division de clase para el regstro de usuarios-->
+            <div class="contenedor__user-register">
+                <!--Formulario para el registro de usuarios-->
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
+                    <h2>REGISTRO DE EMPLEADOS</h2>
+                    <input #nombre type="text" placeholder="Nombre" formControlName="nombre">
+                    <input #trabApe1 type="text" placeholder="Primer Apellido" formControlName="apellido1">
+                    <input #trabApe2 type="text" placeholder="Segundo Apellido" formControlName="apellido2">
+                    <input #trabCed type="number" placeholder="Cédula" max="999999999" formControlName="cedula">
+                    <h6>Seleccione la fecha de ingreso del trabajador a la compañía:</h6>
+                    <input #trabFIng type="date" placeholder="Fecha de Ingreso" formControlName="fecha_ingreso">
+                    <h6>Seleccione la fecha de nacimineto del trabajador:</h6>
+                    <input #trabBirth type="date" placeholder="Fecha de Nacimiento" formControlName="fecha_nacimiento">
+                    <input #trabEdad type="number" placeholder="Edad" min="15" max="99" formControlName="edad">
+                    <input #trabPass type="password" placeholder="Contraseña" minlength="8" formControlName="password">
+                    <h6>Seleccione el rol que decempeña el trabajador:</h6>
+                    <select #wRol name="rol" formControlName="rol">
+                        <option value="1">Lavador</option>
+                        <option value="2">Pulidor</option>
+                    </select>
+                    <h6>Seleccione el tipo de pago del trabajador:</h6>
+                    <select #wPago name="trabPago" formControlName="tipo_pago">
+                        <option value="1">Semanal</option>
+                        <option value="2">Bisemanal</option>
+                    </select>
+                    <button class="button" type="submit">Registrar Trabajador</button>
+                </form>
+                <!--Crear una tabla en este nivel-->
+            </div>
+            <div>
+                <!--Espaciadores-->
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        <div class="tablaRegistro">
+            <h2>TABLA DE TRABAJADORES REGISTRADOS</h2>
+            <!--Creacion de una tabla que muestra los datos de los clientes-->
+            <table class="tabla">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Cédula</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Edad</th>
+                    <th>Contraseña</th>
+                    <th>Rol</th>
+                    <th>Tipo de Pago</th>
+                </tr>
+                <tr *ngFor="let dataItem of EmpleadoList"><!--modificar esto de acuerdo con los headders de la base de datos-->
+                    <td>{{dataItem.nombre}}</td>
+                    <td>{{dataItem.apellido1}}</td>
+                    <td>{{dataItem.apellido2}}</td>
+                    <td>{{dataItem.cedula}}</td>
+                    <td>{{dataItem.fecha_ingreso}}</td>
+                    <td>{{dataItem.fecha_nacimiento}}</td>
+                    <td>{{dataItem.edad}}</td>
+                    <td>{{dataItem.password}}</td>
+                    <td>{{dataItem.rol}}</td>
+                    <td>{{dataItem.tipo_pago}}</td>
+                </tr>
+                <!--En esta parte es donmde se agregan las demas filas--> 
+            </table>
+        </div>
+    </main>
+</body>
+</html>

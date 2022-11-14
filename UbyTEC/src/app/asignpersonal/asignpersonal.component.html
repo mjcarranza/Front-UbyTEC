@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./asignpersonal.component.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <!--Division de clase para el regstro de usuarios-->
+            <div class="contenedor__user-register">
+                <!--Formulario para el registro de usuarios-->
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
+                    <h2>Asignar Personal a Cita Existente</h2>
+                    <h6>Seleccione el trabajador que atiende la cita:</h6>
+                    <select name="sucGerente" formControlName="nombre">
+                        <option *ngFor="let asign of LavadoList" [value]="asign.id">
+                            {{asign.nombre}}
+                        </option>
+                    </select>
+                    <h6>Seleccione el tipo de lavado solicitado:</h6>
+                    <select name="prodProv" formControlName="tipo_lavado">
+                        <option *ngFor="let lav of lavList" [value]="lav.id">
+                            {{lav.nombre}}
+                        </option>
+                    </select>
+                    <button id = "Registrar">Asignar</button>
+                </form>
+                <!--Crear una tabla en este nivel-->
+            </div>
+            <div>
+                <!--Espaciadores-->
+                <p>&nbsp;</p> 
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        <div class="tablaRegistro">
+            <h2>TABLA DE TRABAJADORES ASIGNADOS</h2>
+            <!--Creacion de una tabla que muestra los datos de los clientes-->
+            <table class="tabla">
+                <tr>
+                    <th>Tipo de lavado</th>
+                    <th>Nombre de Trabajador Asignado</th>
+                </tr>
+                <tr *ngFor="let dataItem of AssignationList"><!--modificar esto de acuerdo con los headders de la base de datos-->
+                    <td>{{dataItem.tipo_lavado}}</td>
+                    <td>{{dataItem.trabajador}}</td>
+                </tr>
+                <!--En esta parte es donmde se agregan las demas filas--> 
+            </table>
+        </div>
+    </main>
+    <script></script>
+</body>
+</html>

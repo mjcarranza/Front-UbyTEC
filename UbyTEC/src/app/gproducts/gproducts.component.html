@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./gproducts.component.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <!--Division de clase para el regstro de usuarios-->
+            <div class="contenedor__user-register">
+                <!--Formulario para el registro de usuarios-->
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
+                    <h2>Registrar Producto</h2>
+                    <input id="prodNombre" type="text" placeholder="Nombre del producto" formControlName="nombre">
+                    <input id="prodMarca" type="text" placeholder="Marca" formControlName="marca">
+                    <input id="prodCost" type="number" placeholder="Costo" formControlName="costo">
+                    <h6>Seleccione el proveedor del producto:</h6>
+                    <select name="prodProv" formControlName="proveedor">
+                        <option *ngFor="let prov of proveedorList" [value]="prov.id">
+                            {{prov.nombre}}
+                        </option>
+                    </select>
+                    <button class="button" type="submit">Registrar Producto</button>
+                </form>
+                <!--Crear una tabla en este nivel-->
+            </div>
+            <div>
+                <!--Espaciadores-->
+                <p>&nbsp;</p> 
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        <div class="tablaRegistro">
+            <h2>TABLA DE PRODUCTOS REGISTRADOS</h2>
+            <!--Creacion de una tabla que muestra los datos de los clientes-->
+            <table class="tabla">
+                <tr>
+                    <th>Nombre del Producto</th>
+                    <th>Marca</th>
+                    <th>Costo</th>
+                    <th>Proveedor</th>
+                </tr>
+                <tr *ngFor="let dataItem of ProductsList"><!--modificar esto de acuerdo con los headders de la base de datos-->
+                    <td>{{dataItem.nombre}}</td>
+                    <td>{{dataItem.marca}}</td>
+                    <td>{{dataItem.costo}}</td>
+                    <td>{{dataItem.proveedor}}</td>
+                </tr>
+                <!--En esta parte es donmde se agregan las demas filas--> 
+            </table>
+        </div>
+    </main>
+    <script></script>
+</body>
+</html>
